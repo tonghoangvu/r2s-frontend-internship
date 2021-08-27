@@ -80,7 +80,27 @@
 					<div class="card-header">
 						Content Form Elements
 					</div>
-					<div class="card-body"></div>
+					<div class="card-body d-flex">
+						<form class="w-75">
+							<div class="mb-3">
+								<label for="title" class="form-label fw-bold">Title</label>
+								<input class="form-control" type="text" id="title" required
+									placeholder="Enter the title">
+							</div>
+							<div class="mb-3">
+								<label for="brief" class="form-label fw-bold">Brief</label>
+								<textarea class="form-control" id="brief" rows="3" required></textarea>
+							</div>
+							<div class="mb-3">
+								<label for="content" class="form-label fw-bold">Content</label>
+								<textarea class="form-control" id="content" rows="7" required></textarea>
+							</div>
+							<div>
+								<button class="btn btn-outline-secondary" type="submit">Submit Button</button>
+								<button class="btn btn-outline-secondary" type="reset">Reset Button</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</main>
 		</div>
