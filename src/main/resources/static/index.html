@@ -4,14 +4,33 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home</title>
+	<link rel="stylesheet" href="/css/classes.css">
+	<link rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+		crossorigin="anonymous">
 </head>
-<body>
-	<h1>Home</h1>
-	<a href="/login.html">Login</a>
-	<a href="/register.html">Register</a>
-	<a href="/edit-profile.html">Edit profile</a>
-	<a href="/view-content.html">View content</a>
-	<a href="/add-content.html">Add content</a>
-	<a href="/logout">Logout</a>
+<body class="full-height d-flex flex-column">
+	<nav class="navbar navbar-light bg-light px-2">
+		<div class="m-1">
+			<a class="navbar-brand" href="/">R2S Frontend Project</a>
+		</div>
+		<div class="m-1">
+			<span class="navbar-text">
+				Project kiến tập giữa kì ở R2S
+			</span>
+		</div>
+		<div class="m-1 d-flex gap-2">
+			<a class="btn btn-primary" href="/edit-profile.html">Launch demo</a>
+			<a class="btn btn-outline-secondary" href="/logout">Logout</a>
+		</div>
+	</nav>
+	<iframe class="d-block flex-fill" src="/assets/requirements.pdf"></iframe>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+		integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+		integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
+		crossorigin="anonymous"></script>
 </body>
 </html>
