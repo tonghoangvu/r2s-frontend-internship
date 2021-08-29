@@ -1,23 +1,27 @@
 package com.tonghoangvu.r2sfrontendinternship.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	private final UserDetailsService userDetailService;
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication()
-			.withUser("email@example.com")
-			.password(passwordEncoder().encode("12345678"))
-			.roles("USER");
+		auth.userDetailsService(userDetailService);
 	}
 
 	@Override
@@ -27,13 +31,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.headers().frameOptions().sameOrigin()
 			.and()
 			.authorizeRequests()
-			.antMatchers("/").permitAll()
-			.antMatchers("/login.html").permitAll()
-			.antMatchers("/register.html").permitAll()
-			.antMatchers("/register").permitAll()
-			.antMatchers("/css/**").permitAll()
-			.antMatchers("/js/**").permitAll()
-			.antMatchers("/assets/**").permitAll()
+			.antMatchers("/", "/register").permitAll()
+			.antMatchers("/login.html", "/register.html").permitAll()
+			.antMatchers("/h2-console/**", "/actuator/**").permitAll()
+			.antMatchers("/css/**", "/js/**", "/assets/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			.formLogin()
