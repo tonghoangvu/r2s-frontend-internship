@@ -1,12 +1,14 @@
 package com.tonghoangvu.r2sfrontendinternship.controller;
 
 import com.tonghoangvu.r2sfrontendinternship.model.RegisterForm;
+import com.tonghoangvu.r2sfrontendinternship.model.UpdateProfileForm;
 import com.tonghoangvu.r2sfrontendinternship.model.UserModel;
 import com.tonghoangvu.r2sfrontendinternship.service.AuthService;
 import com.tonghoangvu.r2sfrontendinternship.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -26,5 +28,11 @@ public class UserController {
 	public UserModel getMyProfile() {
 		String myEmail = authService.getEmail();
 		return new UserModel(userService.getUser(myEmail));
+	}
+
+	@PutMapping("/profile")
+	public UserModel updateMyProfile(@Valid UpdateProfileForm updateProfileForm) {
+		String myEmail = authService.getEmail();
+		return new UserModel(userService.updateUser(myEmail, updateProfileForm));
 	}
 }
