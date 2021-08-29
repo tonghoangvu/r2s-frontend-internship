@@ -18,22 +18,23 @@
 <body class="full-height d-flex bg-light">
 	<main class="m-auto card">
 		<div class="card-header fs-5">Register</div>
-		<form class="card-body" action="/register" method="post">
+		<form class="card-body" id="form" action="/register" method="post">
+			<p class="text-danger d-none" id="error-message"></p>
 			<div class="mb-3">
-				<input class="form-control" type="text" name="username" required
-					placeholder="User name">
+				<input class="form-control" type="text" name="username" id="username"
+					placeholder="User name" required>
 			</div>
 			<div class="mb-3">
-				<input class="form-control" type="email" name="email" required
-					placeholder="E-mail">
+				<input class="form-control" type="email" name="email" id="email"
+					placeholder="E-mail" required>
 			</div>
 			<div class="mb-3">
-				<input class="form-control" type="password" name="password" required
-					placeholder="Password">
+				<input class="form-control" type="password" name="password" id="password"
+					placeholder="Password" required>
 			</div>
 			<div class="mb-3">
-				<input class="form-control" type="password" name="repassword" required
-					placeholder="Re Password">
+				<input class="form-control" type="password" name="repassword" id="repassword"
+					placeholder="Re Password" required>
 			</div>
 			<div class="mb-3 d-grid">
 				<button class="btn btn-success btn-lg" type="submit">Register</button>
@@ -49,5 +50,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
 		integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
 		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/js/validate.js"></script>
+	<script src="/js/register.js"></script>
 </body>
 </html>

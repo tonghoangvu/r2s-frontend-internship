@@ -16,7 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
 			.withUser("email@example.com")
-			.password(passwordEncoder().encode("123456"))
+			.password(passwordEncoder().encode("12345678"))
 			.roles("USER");
 	}
 
@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/").permitAll()
 			.antMatchers("/login.html").permitAll()
 			.antMatchers("/register.html").permitAll()
+			.antMatchers("/register").permitAll()
 			.antMatchers("/css/**").permitAll()
 			.antMatchers("/js/**").permitAll()
 			.antMatchers("/assets/**").permitAll()
