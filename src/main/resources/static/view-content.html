@@ -75,12 +75,14 @@
 				</div>
 			</aside>
 			<main class="flex-fill d-flex flex-column p-4">
-				<h1 class="border-bottom pt-3 pb-2">View Content</h1>
-				<div class="card mt-2">
+				<h1 class="pt-3 pb-2" id="loading">Loading</h1>
+				<h1 class="pt-3 pb-2 border-bottom d-none" id="title">View Content</h1>
+				<div class="card mt-2 d-none" id="content">
 					<div class="card-header">
 						View Content List
 					</div>
 					<div class="card-body">
+						<p class="text-danger d-none" id="error-message"></p>
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
@@ -90,37 +92,7 @@
 									<th>Created Date</th>
 								</tr>
 							</thead>
-							<tbody id="body">
-								<tr>
-									<td>1</td>
-									<td>Lorem ipsum dolor sit amet</td>
-									<td>
-										Excepteur sint occaecat cupidatat non
-										proident, sunt in culpa qui officia
-										deserunt mollit anim id est laborum.
-									</td>
-									<td>31/08/2016 12:03</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Vestibulum tincidunt est vitae</td>
-									<td>
-										Aliquam ornare lacus adipiscing, posuere
-										lectus et, fringilla augue.
-									</td>
-									<td>31/08/2016 13:13</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Aliquam ornare lacus adipiscing</td>
-									<td>
-										Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit. Vestibulum tincidunt
-										est vitae ultrices accumsan.
-									</td>
-									<td>01/09/2016 15:09</td>
-								</tr>
-							</tbody>
+							<tbody id="table"></tbody>
 						</table>
 					</div>
 				</div>
@@ -133,5 +105,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
 		integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/"
 		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="/js/validate.js"></script>
+	<script src="/js/view-content.js"></script>
 </body>
 </html>

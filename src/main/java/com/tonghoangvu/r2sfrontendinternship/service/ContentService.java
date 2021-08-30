@@ -6,6 +6,8 @@ import com.tonghoangvu.r2sfrontendinternship.repository.ContentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ContentService {
@@ -19,5 +21,9 @@ public class ContentService {
 		content.setContent(contentForm.getContent());
 		content.setCreatedDate(contentForm.getCreatedDate());
 		return contentRepository.save(content);
+	}
+
+	public List<Content> getAllContents(String userEmail) {
+		return contentRepository.findAllByUserEmail(userEmail);
 	}
 }
