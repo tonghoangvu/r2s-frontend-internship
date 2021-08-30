@@ -1,7 +1,7 @@
 package com.tonghoangvu.r2sfrontendinternship.controller;
 
+import com.tonghoangvu.r2sfrontendinternship.model.ProfileForm;
 import com.tonghoangvu.r2sfrontendinternship.model.RegisterForm;
-import com.tonghoangvu.r2sfrontendinternship.model.UpdateProfileForm;
 import com.tonghoangvu.r2sfrontendinternship.model.UserModel;
 import com.tonghoangvu.r2sfrontendinternship.service.AuthService;
 import com.tonghoangvu.r2sfrontendinternship.service.UserService;
@@ -31,8 +31,8 @@ public class UserController {
 	}
 
 	@PutMapping("/profile")
-	public UserModel updateMyProfile(@Valid UpdateProfileForm updateProfileForm) {
+	public UserModel updateMyProfile(@Valid ProfileForm profileForm) {
 		String myEmail = authService.getEmail();
-		return new UserModel(userService.updateUser(myEmail, updateProfileForm));
+		return new UserModel(userService.updateUser(myEmail, profileForm));
 	}
 }

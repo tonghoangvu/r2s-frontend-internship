@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-public class UpdateProfileForm {
+public class ProfileForm {
 	@NotEmpty(message = "First name is required")
 	@Size(min = 3, max = 30, message = "First name must be between 3 and 30 characters long")
 	private String firstName;
