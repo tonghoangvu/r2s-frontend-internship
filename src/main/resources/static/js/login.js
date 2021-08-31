@@ -1,3 +1,5 @@
+'use strict'
+
 $(document).ready(() => {
 	if (checkPageError())
 		handleError('Username and password do not match')

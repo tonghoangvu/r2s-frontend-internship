@@ -1,3 +1,5 @@
+'use strict'
+
 $(document).ready(() => {
 	loadCurrentProfile()
 	$('#form').submit(() => {

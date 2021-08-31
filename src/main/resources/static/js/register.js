@@ -1,3 +1,5 @@
+'use strict'
+
 $(document).ready(() => {
 	$('#form').submit(() => {
 		const formData = collectFormData()
