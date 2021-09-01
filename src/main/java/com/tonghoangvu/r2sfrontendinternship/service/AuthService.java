@@ -1,5 +1,6 @@
 package com.tonghoangvu.r2sfrontendinternship.service;
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,9 @@ public class AuthService {
 
 	public String getEmail() {
 		Authentication auth = getAuth();
-		return auth == null ? null : auth.getName();
+		if (auth instanceof AnonymousAuthenticationToken)
+			return null;
+		else
+			return auth.getName();
 	}
 }
