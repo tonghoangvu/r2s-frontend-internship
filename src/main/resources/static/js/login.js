@@ -21,7 +21,7 @@ function checkPageError() {
 function collectFormData() {
 	const email = $('#email').val()
 	const password = $('#password').val()
-	return { email, password }
+	return {email, password}
 }
 
 function validateFormData(formData) {

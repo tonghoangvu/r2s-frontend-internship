@@ -22,7 +22,7 @@ function collectFormData() {
 	const brief = $('#brief').val()
 	const content = $('#content').val()
 	const createdDate = formatDate(new Date())
-	return { title, brief, content, createdDate }
+	return {title, brief, content, createdDate}
 }
 
 function formatDate(date) {

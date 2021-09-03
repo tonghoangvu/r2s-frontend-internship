@@ -22,7 +22,7 @@ function collectFormData() {
 	const email = $('#email').val()
 	const password = $('#password').val()
 	const repassword = $('#repassword').val()
-	return { username, email, password, repassword }
+	return {username, email, password, repassword}
 }
 
 function validateFormData(formData) {

@@ -46,7 +46,7 @@ function collectFormData() {
 	const lastName = $('#last-name').val()
 	const phone = $('#phone').val()
 	const description = $('#description').val()
-	return { firstName, lastName, phone, description }
+	return {firstName, lastName, phone, description}
 }
 
 function validateFormData(formData) {
