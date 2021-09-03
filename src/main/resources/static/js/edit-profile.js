@@ -5,8 +5,10 @@ $(document).ready(() => {
 	$('#form').submit(() => {
 		const formData = collectFormData()
 		const errorMessage = validateFormData(formData)
-		if (errorMessage)
-			return handleError(errorMessage)
+		if (errorMessage) {
+			handleError(errorMessage)
+			return false
+		}
 		$.ajax('/profile', {
 			method: 'put',
 			url: '/profile',
@@ -73,7 +75,6 @@ function handleError(message) {
 	const errorMessageElement = $('#error-message')
 	errorMessageElement.removeClass('d-none')
 	errorMessageElement.text(message)
-	return false
 }
 
 function handleSuccess(message) {

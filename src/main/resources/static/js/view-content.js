@@ -43,7 +43,6 @@ function handleError(message) {
 	const errorMessageElement = $('#error-message')
 	errorMessageElement.removeClass('d-none')
 	errorMessageElement.text(message)
-	return false
 }
 
 function displayContent() {

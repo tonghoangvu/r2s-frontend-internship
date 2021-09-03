@@ -4,8 +4,10 @@ $(document).ready(() => {
 	$('#form').submit(() => {
 		const formData = collectFormData()
 		const errorMessage = validateFormData(formData)
-		if (errorMessage)
-			return handleError(errorMessage)
+		if (errorMessage) {
+			handleError(errorMessage)
+			return false
+		}
 		$.post('/content', formData, () => {
 			window.location.replace('/view-content.html')
 		}).fail(error => {
@@ -55,5 +57,4 @@ function handleError(message) {
 	const errorMessageElement = $('#error-message')
 	errorMessageElement.removeClass('d-none')
 	errorMessageElement.text(message)
-	return false
 }
