@@ -9,6 +9,6 @@ public enum ErrorCode {
 	BAD_REQUEST(HttpStatus.BAD_REQUEST, "Bad request"),
 	USER_NOT_FOUND(HttpStatus.NOT_FOUND, "User does not exist");
 
-	final HttpStatus status;
-	final String message;
+	public final HttpStatus status;
+	public final String message;
 }
