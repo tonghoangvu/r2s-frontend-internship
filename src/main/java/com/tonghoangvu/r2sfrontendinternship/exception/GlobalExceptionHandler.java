@@ -14,7 +14,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 public class GlobalExceptionHandler {
 	@ExceptionHandler(ApiException.class)
 	protected ResponseEntity<ErrorResponse> handleApiException(ApiException e) {
-		var response = new ErrorResponse(e.getCode(), e.getMessage());
+		var response = new ErrorResponse(e.getCode());
 		return ResponseEntity
 			.status(e.getCode().status)
 			.body(response);
@@ -26,15 +26,17 @@ public class GlobalExceptionHandler {
 	})
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	protected ErrorResponse handleBindException(Exception e) {
-		String message = "Bad request";
+		String message = null;
 		if (e instanceof BindException bindException)
 			message = bindException.getAllErrors().get(0).getDefaultMessage();
-		return new ErrorResponse(ErrorCode.BAD_REQUEST, message);
+		return message == null
+			? new ErrorResponse(ErrorCode.BAD_REQUEST)
+			: new ErrorResponse(ErrorCode.BAD_REQUEST, message);
 	}
 
 	@ExceptionHandler(Exception.class)
 	protected ErrorResponse handleUnwantedException(Exception e) {
 		log.error("Ops!", e);
-		return new ErrorResponse(ErrorCode.SERVER_ERROR, "Server error");
+		return new ErrorResponse(ErrorCode.SERVER_ERROR);
 	}
 }

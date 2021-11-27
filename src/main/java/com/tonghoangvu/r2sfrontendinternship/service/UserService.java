@@ -26,7 +26,7 @@ public class UserService {
 
 	public User getUser(String email) {
 		return userRepository.findByEmail(email)
-			.orElseThrow(() -> new ApiException(ErrorCode.USER_NOT_FOUND, "User does not exist"));
+			.orElseThrow(() -> new ApiException(ErrorCode.USER_NOT_FOUND));
 	}
 
 	public User updateUser(String email, ProfileForm profileForm) {
