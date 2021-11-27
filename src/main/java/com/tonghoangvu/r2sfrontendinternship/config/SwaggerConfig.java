@@ -45,7 +45,7 @@ public class SwaggerConfig {
 		return new ApiInfo(
 			"R2S frontend internship",
 			"R2S frontend internship project",
-			"0.1",
+			"1.0.0",
 			"/",
 			new Contact(
 				"Tong Hoang Vu",
