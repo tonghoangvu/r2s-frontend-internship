@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Must use for H2
 	private Long id;
 
 	private String email;
