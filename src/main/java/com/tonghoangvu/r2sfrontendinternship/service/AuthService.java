@@ -13,9 +13,8 @@ public class AuthService {
 
 	public String getEmail() {
 		Authentication auth = getAuth();
-		if (auth instanceof AnonymousAuthenticationToken)
-			return null;
-		else
-			return auth.getName();
+		return auth == null || auth instanceof AnonymousAuthenticationToken
+			? null
+			: auth.getName();
 	}
 }
