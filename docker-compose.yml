@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+    web:
+        build: .
+        environment:
+            JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS}
+            ACTIVE_PROFILE: ${ACTIVE_PROFILE:?string}
+        expose:
+            - 8082
+        ports:
+            - "${LAUNCH_PORT:?number}:8082"
+        volumes:
+            - logs:/app/logs
+        restart: on-failure
+volumes:
+    logs:
