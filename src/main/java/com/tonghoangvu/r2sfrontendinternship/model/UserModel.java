@@ -10,7 +10,6 @@ public class UserModel {
 	private Long id;
 	private String email;
 	private String username;
-	// private String password;
 	private String firstName;
 	private String lastName;
 	private String phone;
@@ -20,7 +19,6 @@ public class UserModel {
 		id = user.getId();
 		email = user.getEmail();
 		username = user.getUsername();
-		// password = user.getPassword();
 		firstName = user.getFirstName();
 		lastName = user.getLastName();
 		phone = user.getPhone();

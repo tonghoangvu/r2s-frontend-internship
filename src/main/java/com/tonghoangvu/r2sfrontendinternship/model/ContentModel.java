@@ -8,7 +8,6 @@ import lombok.Setter;
 @Setter
 public class ContentModel {
 	private Long id;
-	// private String userEmail;
 	private String title;
 	private String brief;
 	private String content;
@@ -16,7 +15,6 @@ public class ContentModel {
 
 	public ContentModel(Content content) {
 		id = content.getId();
-		// userEmail = content.getUserEmail();
 		title = content.getTitle();
 		brief = content.getBrief();
 		this.content = content.getContent();
