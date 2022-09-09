@@ -1,6 +1,8 @@
 version: "3.8"
 services:
     web:
+        # Build image from source in localhost only
+        # Use remote image instead in other cases
         build: .
         environment:
             JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS}
