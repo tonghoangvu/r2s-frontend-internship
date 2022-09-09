@@ -36,7 +36,8 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(Exception.class)
 	protected ErrorResponse handleUnwantedException(Exception e) {
-		log.error("Ops!", e);
+		if (log.isErrorEnabled())
+			log.error("Ops!", e);
 		return new ErrorResponse(ErrorCode.SERVER_ERROR);
 	}
 }

@@ -17,6 +17,8 @@ public class LoggingAspect {
 
 	@Before("execution(* com.tonghoangvu.r2sfrontendinternship.controller.*.*(..))")
 	public void logApiCall(JoinPoint joinPoint) {
+		if (!log.isInfoEnabled())
+			return;
 		String userIdentity = authService.getEmail();
 		log.info("API - {}.{} - {}",
 			joinPoint.getSignature().getDeclaringType().getSimpleName(),
