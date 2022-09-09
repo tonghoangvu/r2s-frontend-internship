@@ -8,7 +8,5 @@ RUN mvn package -DskipTests && cp target/*.jar app.jar
 
 FROM openjdk:17-alpine
 WORKDIR /app
-EXPOSE 8082
-ENV ACTIVE_PROFILE = "dev"
 COPY --from=build app.jar app.jar
-ENTRYPOINT ["java", "-Dspring.profiles.active=${ACTIVE_PROFILE}", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]

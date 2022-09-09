@@ -1,18 +1,20 @@
-version: "3.8"
+version: '3.8' # Must be quoted
 services:
     web:
         # Build image from source in localhost only
         # Use remote image instead in other cases
         build: .
+        # Pass environment variables to container
         environment:
-            JAVA_TOOL_OPTIONS: ${JAVA_TOOL_OPTIONS}
-            ACTIVE_PROFILE: ${ACTIVE_PROFILE:?string}
+            - server.port=${PORT?}
+            - spring.profiles.active=${ACTIVE_PROFILE?}
+            - JAVA_TOOL_OPTIONS=${JAVA_TOOL_OPTIONS}
         expose:
-            - 8082
+            - ${PORT?}
         ports:
-            - "${LAUNCH_PORT:?number}:8082"
+            - 8082:${PORT?}
+        restart: on-failure
         volumes:
             - logs:/app/logs
-        restart: on-failure
 volumes:
     logs:
